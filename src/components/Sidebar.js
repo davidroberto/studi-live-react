@@ -1,13 +1,13 @@
 const Sidebar = ({ categories }) => {
   return (
     <aside>
-      <h3>Toutes les catégories :</h3>
+      <h4>Toutes les catégories :</h4>
       {categories ? (
         <>
           {categories.map((category) => {
             return (
               <article>
-                <p>{category.strCategory}</p>
+                <div>{category.strCategory}</div>
               </article>
             );
           })}
