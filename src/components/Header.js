@@ -9,7 +9,7 @@ const Header = ({ categories }) => {
             {lastCategories.map((category) => {
               return (
                 <li>
-                  <p>{category.strCategory}</p>
+                  {category.strCategory} &nbsp;
                 </li>
               );
             })}
