@@ -51,7 +51,14 @@ const Meals = () => {
         {meal ? (
           <article>
             <p>{meal.strMeal}</p>
-            <p>{meal.strInstructions}</p>
+            <div class='meal-photo-text'>
+                <div class='photo'>
+                    <img src={meal.strMealThumb} width="200" ></img>
+                </div>
+                <div class='text'>
+                    {meal.strInstructions}
+                </div>
+            </div>
           </article>
         ) : (
           <p>Pas de recette</p>
