@@ -7,11 +7,7 @@ const Header = ({ categories }) => {
         {lastCategories ? (
           <>
             {lastCategories.map((category) => {
-              return (
-                <li>
-                  {category.strCategory} &nbsp;
-                </li>
-              );
+              return <li>{category.strCategory} &nbsp;</li>;
             })}
           </>
         ) : (

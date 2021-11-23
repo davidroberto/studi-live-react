@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
+import { useState, useEffect } from "react";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
-const Meals = () => {
+const Home = ({ categories }) => {
   const [meal, setMeal] = useState(null);
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     (async function () {
@@ -17,18 +16,6 @@ const Meals = () => {
 
       const mealsFromAPI = await response.json();
       setMeal(mealsFromAPI.meals[0]);
-    })();
-
-    (async function () {
-      const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
-      const response = await fetch(url, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      const categoriesFromApi = await response.json();
-      setCategories(categoriesFromApi.categories);
     })();
   }, []);
 
@@ -51,13 +38,11 @@ const Meals = () => {
         {meal ? (
           <article>
             <p>{meal.strMeal}</p>
-            <div class='meal-photo-text'>
-                <div class='photo'>
-                    <img src={meal.strMealThumb} width="200" ></img>
-                </div>
-                <div class='text'>
-                    {meal.strInstructions}
-                </div>
+            <div class="meal-photo-text">
+              <div class="photo">
+                <img src={meal.strMealThumb} width="200"></img>
+              </div>
+              <div class="text">{meal.strInstructions}</div>
             </div>
           </article>
         ) : (
@@ -70,4 +55,4 @@ const Meals = () => {
   );
 };
 
-export default Meals;
+export default Home;
